@@ -8,5 +8,5 @@
 	<link rel="stylesheet" href="<?= URL ?>/css/style.css">
 </head>
 <body>
-<header>DE MANEGE</header>
+<a href="<?=URL?>Main/index"><header>DE MANEGE</header></a>
 	<div id="container">

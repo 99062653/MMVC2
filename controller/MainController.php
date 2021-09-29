@@ -9,7 +9,20 @@ function index()
 }
 
 function dierenoverzicht()
-{
-    $dieren = 
+{   
+    $dieren = getDieren();
     render('dieren/overzicht', $dieren);
+}
+
+function editDier($id) {
+
+    $dier = getDier($id);
+    render('dieren/edit', $dier);
+}
+
+function updateDierSend($id) {
+
+    $data = getDier($id);
+    updateDier($data);
+    render('dieren/edit');
 }
