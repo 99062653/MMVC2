@@ -32,17 +32,27 @@
 		return $result;
 	}
 
-	function updateDier() {
-		
-		$id = 2;
-		$naam = "niggaracer";
-		$leeftijd = 69;
-		$ras = "bitch";
-		$soort = "cumwhore";
-
+	function updateDier($id, $naam, $leeftijd, $ras, $soort) {
 		$conn = openDatabaseConnection(); 
 	    $stmt = $conn->prepare("UPDATE manegedieren SET naam = :naam, leeftijd = :leeftijd, ras = :ras, soort = :soort WHERE id = :id");
 		$stmt->bindParam(":id", $id);
+		$stmt->bindParam(":naam", $naam);
+		$stmt->bindParam(":leeftijd", $leeftijd);
+		$stmt->bindParam(":ras", $ras);
+		$stmt->bindParam(":soort", $soort);
+		$stmt->execute();
+	}
+
+	function deleteDier($id) {
+		$conn = openDatabaseConnection(); 
+	    $stmt = $conn->prepare("DELETE FROM manegedieren WHERE id= :id");
+		$stmt->bindParam(":id", $id);
+		$stmt->execute();
+	}
+
+	function createDier($naam, $leeftijd, $ras, $soort) {
+		$conn = openDatabaseConnection(); 
+	    $stmt = $conn->prepare("INSERT INTO manegedieren SET naam = :naam, leeftijd = :leeftijd, ras = :ras, soort = :soort");
 		$stmt->bindParam(":naam", $naam);
 		$stmt->bindParam(":leeftijd", $leeftijd);
 		$stmt->bindParam(":ras", $ras);
