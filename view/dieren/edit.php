@@ -26,4 +26,4 @@
 		<input type="submit" name="submit" value="UPDATE">
 </form>
 
-<a style="display: block; margin-top: 15px;" href="<?=URL?>Main/Dierenoverzicht/manegedieren">TERUG</a>
+<a style="display: block; margin-top: 15px;" href="<?=URL?>Main/Overzicht/manegedieren">TERUG</a>

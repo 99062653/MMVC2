@@ -18,7 +18,7 @@
 		<td><?=$value["email"]?></td>
 		<td><?=$value["telefoon"]?></td>
 		<td><a href="<?=URL?>Main/updatePage/klanten/<?= $value["id"];?>">EDIT</a></td>
-		<td><a style="color: red;" href="<?=URL?>Main/deleteKlantPage/<?= $value["id"];?>">DELETE</a></td>
+		<td><a style="color: red;" href="<?=URL?>Main/deletePage/klanten/<?= $value["id"];?>">DELETE</a></td>
 	</tr>
 	<?php }
 

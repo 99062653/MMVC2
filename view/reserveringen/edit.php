@@ -22,4 +22,4 @@
 		<input type="submit" name="submit" value="UPDATE">
 </form>
 
-<a style="display: block; margin-top: 15px;" href="<?=URL?>Main/klantenoverzicht/klanten">TERUG</a>
+<a style="display: block; margin-top: 15px;" href="<?=URL?>Main/Overzicht/klanten">TERUG</a>

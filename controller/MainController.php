@@ -56,21 +56,6 @@ function deletePage($table, $id) {
         }
 }
 
-function deleteDierPage($id) {
-
-    $table = "manegedieren";
-    $dier = getItem($id, $table);
-    render('dieren/delete', $dier);
-}
-
-function deleteKlantPage($id) {
-
-    $table = "klanten";
-    $klant = getItem($id, $table);
-    render('klanten/delete', $klant);
-}
-
-
 function createPage($table) {
 
     if ($table == "manegedieren") {

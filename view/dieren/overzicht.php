@@ -18,7 +18,7 @@
 		<td><?=$value["soort"]?></td>
 		<td><img style="width: 100px; height: 100px;" src="<?=$value["img"]?>"></td>
 		<td><a href="<?=URL?>Main/updatePage/manegedieren/<?= $value["id"];?>">EDIT</a></td>
-		<td><a style="color: red;" href="<?=URL?>Main/deleteDierPage/<?= $value["id"];?>">DELETE</a></td>
+		<td><a style="color: red;" href="<?=URL?>Main/deletePage/manegedieren/<?= $value["id"];?>">DELETE</a></td>
 	</tr>
 	<?php }
 

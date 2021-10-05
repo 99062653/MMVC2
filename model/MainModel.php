@@ -32,6 +32,13 @@
 		return $result;
 	}
 
+	function deleteItem($table, $id) {
+		$conn = openDatabaseConnection(); 
+	    $stmt = $conn->prepare("DELETE FROM $table WHERE id= :id");
+		$stmt->bindParam(":id", $id);
+		$stmt->execute();
+	}
+
 	function updateDier($id, $naam, $leeftijd, $ras, $soort, $img) {
 		$conn = openDatabaseConnection(); 
 	    $stmt = $conn->prepare("UPDATE manegedieren SET naam = :naam, leeftijd = :leeftijd, ras = :ras, soort = :soort, img = :img WHERE id = :id");
@@ -53,13 +60,6 @@
 		$stmt->bindParam(":leeftijd", $leeftijd);
 		$stmt->bindParam(":email", $email);
 		$stmt->bindParam(":telefoon", $telefoon);
-		$stmt->execute();
-	}
-
-	function deleteItem($table, $id) {
-		$conn = openDatabaseConnection(); 
-	    $stmt = $conn->prepare("DELETE FROM $table WHERE id= :id");
-		$stmt->bindParam(":id", $id);
 		$stmt->execute();
 	}
 
