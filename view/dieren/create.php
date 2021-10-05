@@ -14,7 +14,10 @@
 		<label for="soort">SOORT</label><br>
 		<input type="text" name="soort" placeholder="SOORT" required><br>
 
+		<label for="img">IMG</label><br>
+		<input type="text" name="img" placeholder="IMAGE LINK"><br>
+
 		<input type="submit" name="submit" value="CREATE">
 </form>
 
-<a style="display: block; margin-top: 15px;" href="<?=URL?>Main/dierenoverzicht">TERUG</a>
+<a style="display: block; margin-top: 15px;" href="<?=URL?>Main/dierenoverzicht/manegedieren">TERUG</a>

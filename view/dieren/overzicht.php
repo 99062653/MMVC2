@@ -5,6 +5,7 @@
 		<th>LEEFTIJD</th>
 		<th>RAS</th>
 		<th>SOORT</th>
+		<th>IMAGE</th>
 		<th style="background-color: black;"></th>
 		<th style="background-color: black; font-size: 50p; text-align: center;"><a style="color: white;" href="<?=URL?>Main/createDierPage">CREATE</a></th>
 	</tr>
@@ -15,6 +16,7 @@
 		<td><?=$value["leeftijd"]?></td>
 		<td><?=$value["ras"]?></td>
 		<td><?=$value["soort"]?></td>
+		<td><img style="width: 100px; height: 100px;" src="<?=$value["img"]?>"></td>
 		<td><a href="<?=URL?>Main/updateDierPage/<?= $value["id"];?>">EDIT</a></td>
 		<td><a style="color: red;" href="<?=URL?>Main/deleteDierPage/<?= $value["id"];?>">DELETE</a></td>
 	</tr>
