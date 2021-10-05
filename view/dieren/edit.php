@@ -14,6 +14,9 @@
 		<label for="soort">SOORT</label><br>
 		<input type="text" name="soort" value="<?=$data["soort"];?>" required><br>
 
+		<label for="img">IMG</label><br>
+		<input type="text" name="img" value="<?=$data["img"];?>><br>
+
 		<input type="submit" name="submit" value="UPDATE">
 </form>
 
