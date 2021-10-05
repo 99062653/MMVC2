@@ -12,7 +12,10 @@
 		<input type="text" name="ras" placeholder="RAS" required><br>
 
 		<label for="soort">SOORT</label><br>
-		<input type="text" name="soort" placeholder="SOORT" required><br>
+		<select name="soort" required>
+			<option value="paard">PAARD</option>
+			<option value="pony">PONY</option>
+		</select> <br>
 
 		<label for="img">IMG</label><br>
 		<input type="text" name="img" placeholder="IMAGE LINK"><br>

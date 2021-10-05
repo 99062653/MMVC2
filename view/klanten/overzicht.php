@@ -7,7 +7,7 @@
 		<th>EMAIL</th>
 		<th>TELEFOON</th>
 		<th style="background-color: black;"></th>
-		<th style="background-color: black; font-size: 50p; text-align: center;"><a style="color: white;" href="<?=URL?>Main/createKlantPage">CREATE</a></th>
+		<th style="background-color: black; font-size: 50p; text-align: center;"><a style="color: white;" href="<?=URL?>Main/createPage/klanten">CREATE</a></th>
 	</tr>
 	<?php foreach($data as $key => $value) {  ?>
 	<tr>
@@ -17,7 +17,7 @@
 		<td><?=$value["leeftijd"]?></td>
 		<td><?=$value["email"]?></td>
 		<td><?=$value["telefoon"]?></td>
-		<td><a href="<?=URL?>Main/updateKlantPage/<?= $value["id"];?>">EDIT</a></td>
+		<td><a href="<?=URL?>Main/updatePage/klanten/<?= $value["id"];?>">EDIT</a></td>
 		<td><a style="color: red;" href="<?=URL?>Main/deleteKlantPage/<?= $value["id"];?>">DELETE</a></td>
 	</tr>
 	<?php }

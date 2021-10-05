@@ -56,16 +56,9 @@
 		$stmt->execute();
 	}
 
-	function deleteDier($id) {
+	function deleteItem($table, $id) {
 		$conn = openDatabaseConnection(); 
-	    $stmt = $conn->prepare("DELETE FROM manegedieren WHERE id= :id");
-		$stmt->bindParam(":id", $id);
-		$stmt->execute();
-	}
-
-	function deleteKlant($id) {
-		$conn = openDatabaseConnection(); 
-	    $stmt = $conn->prepare("DELETE FROM klanten WHERE id= :id");
+	    $stmt = $conn->prepare("DELETE FROM $table WHERE id= :id");
 		$stmt->bindParam(":id", $id);
 		$stmt->execute();
 	}

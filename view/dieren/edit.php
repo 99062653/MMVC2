@@ -12,10 +12,16 @@
 		<input type="text" name="ras" value="<?=$data["ras"];?>" required><br>
 
 		<label for="soort">SOORT</label><br>
-		<input type="text" name="soort" value="<?=$data["soort"];?>" required><br>
+		<select name="soort">
+			<?php if($data["soort"] == 'paard') { ?>
+				<option value="paard">PAARD</option>
+			<?php }else { ?>
+				<option value="pony">PONY</option>
+				<?php } ?>
+		</select> <br>
 
 		<label for="img">IMG</label><br>
-		<input type="text" name="img" value="<?=$data["img"];?>><br>
+		<input type="text" name="img" value="<?=$data["img"];?>"><br>
 
 		<input type="submit" name="submit" value="UPDATE">
 </form>

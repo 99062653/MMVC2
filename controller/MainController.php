@@ -7,31 +7,53 @@ function index()
 	$connection = checkConnection();
     render('index', ['connection' => $connection]);
 }
+    
+function Overzicht($table) {   
 
-function dierenoverzicht($table)
-{   
-    $dieren = getAll($table);
-    render('dieren/overzicht', $dieren);
+    if ($table == "manegedieren") {
+	        $dieren = getAll($table);
+            render('dieren/overzicht', $dieren);
+        }elseif ($table == "klanten") {
+            $klanten = getAll($table);
+            render('klanten/overzicht', $klanten);
+        }else {
+            $reserveringen = getAll($table);
+            render('reserveringen/overzicht', $reserveringen);
+        }
 }
 
-function klantenoverzicht($table)
-{   
-    $klanten = getAll($table);
-    render('klanten/overzicht', $klanten);
+function updatePage($table, $id) {
+
+    if ($table == "manegedieren") {
+	        $table = "manegedieren";
+            $dier = getItem($id, $table);
+            render('dieren/edit', $dier);
+        }elseif ($table == "klanten") {
+            $table = "klanten";
+            $klant = getItem($id, $table);
+            render('klanten/edit', $klant);
+        }else {
+            $table = "reserveringen";
+            $reservering = getItem($id, $table);
+            render('reserveringen/edit', $reservering);
+        }
 }
 
-function updateDierPage($id) {
+function deletePage($table, $id) {
 
-    $table = "manegedieren";
-    $dier = getItem($id, $table);
-    render('dieren/edit', $dier);
-}
-
-function updateKlantPage($id) {
-
-    $table = "klanten";
-    $klant = getItem($id, $table);
-    render('klanten/edit', $klant);
+    if ($table == "manegedieren") {
+	        $table = "manegedieren";
+            $dier = getItem($id, $table);
+            render('dieren/delete', $dier);
+        }elseif ($table == "klanten") {
+            $table = "klanten";
+            $klant = getItem($id, $table);
+            render('klanten/delete', $klant);
+        }else {
+            $table = "reserveringen";
+            $reservering = getItem($id, $table);
+            render('reservering/delete', $reservering);
+        }
 }
 
 function deleteDierPage($id) {
@@ -48,14 +70,16 @@ function deleteKlantPage($id) {
     render('klanten/delete', $klant);
 }
 
-function createDierPage() {
 
-    render('dieren/create');
-}
+function createPage($table) {
 
-function createKlantPage() {
-
-    render('klanten/create');
+    if ($table == "manegedieren") {
+	    render('dieren/create');
+    }elseif ($table == "klanten") {
+        render('klanten/create');
+    }else {
+        render('reserveringen/create');
+    }
 }
 
 function updateDierSend($id) {
@@ -95,20 +119,20 @@ function updateKlantSend($id) {
     render('klanten/overzicht', $klanten);
 }
 
-function deleteDierSend($id) {
+function deleteSend($table, $id) {
 
-    deleteDier($id);
+    deleteItem($table, $id);
 
-    $dieren = getAll('manegedieren');
-    render('dieren/overzicht', $dieren);
-}
-
-function deleteKlantSend($id) {
-
-    deleteKlant($id);
-
-    $klanten = getAll('klanten');
-    render('klanten/overzicht', $klanten);
+    if($table == "manegedieren") {
+        $dieren = getAll('manegedieren');
+        render('dieren/overzicht', $dieren);
+    } elseif ($table == "klanten") {
+        $klanten = getAll('klanten');
+        render('klanten/overzicht', $klanten);
+	} else {
+	  $reserveringen = getAll('reserveringen ');
+        render('reserveringen /overzicht', $reserveringen);
+    }
 }
 
 function createDierSend() {
