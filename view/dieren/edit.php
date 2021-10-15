@@ -3,7 +3,7 @@
 <form name="diereneditor" method="post" action="<?=URL?>Main/updateDierSend/<?=$data['id']?>">
 
 		<label for="naam">NAAM</label><br>
-		<input type="text" name="naam" value="<?=$data["naam"];?>"  required><br>
+		<input type="text" name="naam" value="<?=$data["diernaam"];?>"  required><br>
 
 		<label for="leeftijd">LEEFTIJD</label><br>
 		<input type="number" name="leeftijd" value="<?=$data["leeftijd"];?>" required><br>
@@ -20,10 +20,19 @@
 				<?php } ?>
 		</select> <br>
 
+		<label for="schofthoogte">SCHOFTHOOGTE</label><br>
+		<select name="schofthoogte">
+		<?php if($data["schofthoogte"] == 1) { ?>
+				<option value="TRUE">JA</option>
+			<?php }else { ?>
+				<option value="FALSE">NEE</option>
+				<?php } ?>
+		</select> <br>
+
 		<label for="img">IMG</label><br>
 		<input type="text" name="img" value="<?=$data["img"];?>"><br>
 
 		<input type="submit" name="submit" value="UPDATE">
 </form>
-
+<br>
 <a style="display: block; margin-top: 15px;" href="<?=URL?>Main/Overzicht/manegedieren">TERUG</a>

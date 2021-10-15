@@ -25,34 +25,32 @@ function Overzicht($table) {
 function updatePage($table, $id) {
 
     if ($table == "manegedieren") {
-	        $table = "manegedieren";
             $dier = getItem($id, $table);
             render('dieren/edit', $dier);
         }elseif ($table == "klanten") {
-            $table = "klanten";
             $klant = getItem($id, $table);
             render('klanten/edit', $klant);
         }else {
-            $table = "reserveringen";
-            $reservering = getItem($id, $table);
-            render('reserveringen/edit', $reservering);
+            $reservering = getItem($id, "reserveringen");
+            $dier = getAll("manegedieren");
+            $klant = getAll("klanten");
+            render('reserveringen/edit', ['reserveringen' => $reservering, 'manegedieren' => $dier, 'klanten' => $klant]);
+            //render('reserveringen/edit', $reservering);
         }
 }
 
 function deletePage($table, $id) {
 
     if ($table == "manegedieren") {
-	        $table = "manegedieren";
             $dier = getItem($id, $table);
             render('dieren/delete', $dier);
         }elseif ($table == "klanten") {
-            $table = "klanten";
             $klant = getItem($id, $table);
             render('klanten/delete', $klant);
         }else {
             $table = "reserveringen";
             $reservering = getItem($id, $table);
-            render('reservering/delete', $reservering);
+            render('reserveringen/delete', $reservering);
         }
 }
 
@@ -63,7 +61,9 @@ function createPage($table) {
     }elseif ($table == "klanten") {
         render('klanten/create');
     }else {
-        render('reserveringen/create');
+        $dieren = getAll("manegedieren");
+        $klanten = getAll("klanten");
+        render('reserveringen/create', ['manegedieren' => $dieren, 'klanten' => $klanten]);
     }
 }
 
@@ -74,9 +74,10 @@ function updateDierSend($id) {
         $leeftijd = $_REQUEST['leeftijd'];
         $ras = $_REQUEST['ras'];
         $soort = $_REQUEST['soort'];
+        $schofthoogte = $_REQUEST['schofthoogte'];
         $img = $_REQUEST['img'];
 
-        updateDier($id, $naam, $leeftijd, $ras, $soort, $img);
+        updateDier($id, $naam, $leeftijd, $ras, $soort, $schofthoogte, $img);
     } else {
         echo 'ERROR!';
     }
@@ -94,14 +95,34 @@ function updateKlantSend($id) {
         $leeftijd = $_REQUEST['leeftijd'];
         $email = $_REQUEST['email'];
         $telefoon = $_REQUEST['telefoon'];
+        $adres = $_REQUEST['adres'];
 
-        updateKlant($id, $table, $naam, $achternaam, $leeftijd, $email, $telefoon);
+        updateKlant($id, $table, $naam, $achternaam, $leeftijd, $email, $telefoon, $adres);
     } else {
         echo 'ERROR!';
     }
 
     $klanten = getAll('klanten');
     render('klanten/overzicht', $klanten);
+}
+
+function updateReserveringSend($id) {
+    
+    if ( isset( $_POST['submit'] ) ) {
+        $table = $_REQUEST['table'];
+        $datum = $_REQUEST['datum'];
+        $start = $_REQUEST['start-tijd'];
+        $eind = $_REQUEST['eind-tijd'];
+        $paard = $_REQUEST['paard'];
+        $klant = $_REQUEST['klant'];
+
+        updateReservering($id, $table, $datum, $start, $eind, $paard, $klant);
+    } else {
+        echo 'ERROR!';
+    }
+
+    $reserveringen = getAll('reserveringen');
+    render('reserveringen/overzicht', $reserveringen);
 }
 
 function deleteSend($table, $id) {
@@ -127,9 +148,10 @@ function createDierSend() {
         $leeftijd = $_REQUEST['leeftijd'];
         $ras = $_REQUEST['ras'];
         $soort = $_REQUEST['soort'];
+        $schofthoogte = $_REQUEST['schofthoogte'];
         $img = $_REQUEST['img'];
 
-        createDier($naam, $leeftijd, $ras, $soort, $img);
+        createDier($naam, $leeftijd, $ras, $soort, $schofthoogte, $img);
     } else {
         echo 'ERROR!';
     }
@@ -146,12 +168,31 @@ function createKlantSend() {
         $leeftijd = $_REQUEST['leeftijd'];
         $email = $_REQUEST['email'];
         $telefoon = $_REQUEST['telefoon'];
+        $adres = $_REQUEST['adres'];
 
-        createKlant($naam, $achternaam, $leeftijd, $email, $telefoon);
+        createKlant($naam, $achternaam, $leeftijd, $email, $telefoon, $adres);
     } else {
         echo 'ERROR!';
     }
 
     $klanten = getAll('klanten');
     render('klanten/overzicht', $klanten);
+}
+
+function createReserveringSend() {
+    
+    if ( isset( $_POST['submit'] ) ) {
+        $datum = $_REQUEST['datum'];
+        $start = $_REQUEST['start'];
+        $eind = $_REQUEST['einde'];
+        $paard = $_REQUEST['paard'];
+        $klant = $_REQUEST['klant'];
+
+        createReservering($datum, $start, $eind, $paard, $klant);
+    } else {
+        echo 'ERROR!';
+    }
+
+    $reserveringen = getAll('reserveringen');
+    render('reserveringen/overzicht', $reserveringen);
 }

@@ -1,4 +1,11 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
 body {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
     background-color: grey;
@@ -21,6 +28,11 @@ a {
 
 table {
     margin: 0 auto;
+}
+
+form input, select{
+    width: 175px;
+    
 }
 
 th, td {

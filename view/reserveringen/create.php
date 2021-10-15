@@ -1,23 +1,30 @@
-<h1>CREATE KLANT</h1>
+<h1>CREATE RESERVERING</h1>
 
-<form name="diereneditor" method="post" action="<?=URL?>Main/createKlantSend">
+<form name="diereneditor" method="post" action="<?=URL?>Main/createReserveringSend">
 
-		<label for="naam">NAAM</label><br>
-		<input type="text" name="naam" placeholder="NAAM"  required><br>
+		<label for="datum">DATUM</label><br>
+		<input type="date" name="datum"  required><br>
 
-		<label for="naam">ACHTERNAAM</label><br>
-		<input type="text" name="achternaam" placeholder="ACHTERNAAM"  required><br>
+		<label for="start">START</label><br>
+		<input type="time" name="start" required><br>
 
-		<label for="leeftijd">LEEFTIJD</label><br>
-		<input type="number" name="leeftijd" placeholder="LEEFTIJD"  required><br>
+		<label for="einde">AANTAL UREN</label><br>
+		<input type="numer" name="einde" maxlength="1" required><br>
+		<label for="paard">PAARD</label><br>
+		<select name="paard" required>
+			<?php foreach($data['manegedieren'] as $key => $value) {  ?>
+				<option value="<?= $value["diernaam"]?>"><?= $value["diernaam"]?></option>
+			<?php } ?>
+		</select> <br>
 
-		<label for="ras">EMAIL</label><br>
-		<input type="text" name="email" placeholder="EMAIL" required><br>
-
-		<label for="soort">TELEFOON</label><br>
-		<input type="number" name="telefoon" placeholder="TELEFOON" required><br>
+		<label for="klant">KLANT</label><br>
+		<select name="klant" required>
+			<?php foreach($data['klanten'] as $key => $value) {  ?>
+				<option value="<?= $value["klantnaam"]?>"><?= $value["klantnaam"]?></option>
+			<?php } ?>
+		</select> <br><br>
 
 		<input type="submit" name="submit" value="CREATE">
 </form>
-
-<a style="display: block; margin-top: 15px;" href="<?=URL?>Main/Overzicht/klanten">TERUG</a>
+<br>
+<a style="display: block; margin-top: 15px;" href="<?=URL?>Main/Overzicht/reserveringen">TERUG</a>

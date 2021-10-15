@@ -17,10 +17,16 @@
 			<option value="pony">PONY</option>
 		</select> <br>
 
+		<label for="schofthoogte">SCHOFTHOOGTE</label><br>
+		<select name="schofthoogte">
+			<option value="JA">JA</option>
+			<option value="NEE">NEE</option>
+		</select> <br>
+
 		<label for="img">IMG</label><br>
 		<input type="text" name="img" placeholder="IMAGE LINK"><br>
 
 		<input type="submit" name="submit" value="CREATE">
 </form>
-
+<br>
 <a style="display: block; margin-top: 15px;" href="<?=URL?>Main/Overzicht/manegedieren">TERUG</a>
