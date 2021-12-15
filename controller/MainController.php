@@ -109,14 +109,14 @@ function updateKlantSend($id) {
 function updateReserveringSend($id) {
     
     if ( isset( $_POST['submit'] ) ) {
-        $table = $_REQUEST['table'];
+        //$table = $_REQUEST['table'];
         $datum = $_REQUEST['datum'];
-        $start = $_REQUEST['start-tijd'];
-        $eind = $_REQUEST['eind-tijd'];
+        $start = $_REQUEST['start'];
+        $eind = $_REQUEST['einde'];
         $paard = $_REQUEST['paard'];
         $klant = $_REQUEST['klant'];
 
-        updateReservering($id, $table, $datum, $start, $eind, $paard, $klant);
+        updateReservering($id, $datum, $start, $eind, $paard, $klant);
     } else {
         echo 'ERROR!';
     }

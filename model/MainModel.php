@@ -69,9 +69,9 @@
 		$stmt->execute();
 	}
 
-	function updateReservering($id, $table, $datum, $start, $eind, $paard, $klant) {
+	function updateReservering($id, $datum, $start, $eind, $paard, $klant) {
 		$conn = openDatabaseConnection(); 
-	    $stmt = $conn->prepare("UPDATE reserveringen SET datum = :datum, start-tijd = :start, eind-tijd = :eind, paard = :paard, klant = :klant WHERE id = :id");
+	    $stmt = $conn->prepare("UPDATE reserveringen SET datum = :datum, starttijd = :start, uren = :eind, paard = :paard, klant = :klant WHERE id = :id");
 		$stmt->bindParam(":id", $id);
 		$stmt->bindParam(":datum", $datum);
 		$stmt->bindParam(":start", $start);

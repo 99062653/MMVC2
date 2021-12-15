@@ -11,11 +11,22 @@
 		<th style="background-color: black; font-size: 50p; text-align: center;"><a style="color: white;" href="<?=URL?>Main/createPage/reserveringen">CREATE</a></th>
 	</tr>
 	<?php foreach($data as $key => $value) {  
-		$prijs = $value['uren'] * 55; ?>
+		$prijs = $value['uren'] * 55; 
+		if($value["datum"] > date("Y-m-d")) {
+			$isvalid = true;
+		}else {
+			$isvalid = false;
+		}
+		?>
 	<tr>
 		<td><?=$value["id"]?></td>
 		<td>&euro;<?=$prijs?></td>
-		<td><?=$value["datum"]?></td>
+		<td <?php if($isvalid) { ?>
+			style="background-color: green;"
+		<?php }else { ?>
+			style="background-color: red;"
+		<?php } ?>
+		><?=$value["datum"]?></td>
 		<td><?=$value["starttijd"]?></td>
 		<td><?=$value["uren"]?></td>
 		<td><?=$value["paard"]?></td>

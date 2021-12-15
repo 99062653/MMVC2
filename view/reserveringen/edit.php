@@ -1,15 +1,18 @@
 <h1>EDIT RESERVERING</h1>
 
-<form name="diereneditor" method="post" action="<?=URL?>Main/updateReserveringSend/<?=$data['id']?>">
+<?php
+	$data["reserveringen"] = $reserveringen;
+?>
+<form name="diereneditor" method="post" action="<?=URL?>Main/updateReserveringSend/<?=$reserveringen["id"];?>">
 
 		<label for="datum">DATUM</label><br>
-		<input type="date" name="datum" value="<?=$data["datum"];?>"  required><br>
+		<input type="date" name="datum" value="<?=$reserveringen["datum"];?>"  required><br>
 
 		<label for="start">START</label><br>
-		<input type="time" name="start" value="<?=$data["starttijd"];?>" required><br>
+		<input type="time" name="start" value="<?=$reserveringen["starttijd"];?>" required><br>
 
 		<label for="einde">AANTAL UREN</label><br>
-		<input type="numer" name="einde" maxlength="1" value="<?=$data["uren"];?>" required><br>
+		<input type="numer" name="einde" maxlength="1" value="<?=$reserveringen["uren"];?>" required><br>
 
 		<label for="paard">PAARD</label><br>
 		<select name="paard" required>
