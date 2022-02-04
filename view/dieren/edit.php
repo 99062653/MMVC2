@@ -15,17 +15,21 @@
 		<select name="soort">
 			<?php if($data["soort"] == 'paard') { ?>
 				<option value="paard">PAARD</option>
+				<option value="pony">PONY</option>
 			<?php }else { ?>
 				<option value="pony">PONY</option>
+				<option value="paard">PAARD</option>
 				<?php } ?>
 		</select> <br>
 
 		<label for="schofthoogte">SCHOFTHOOGTE</label><br>
 		<select name="schofthoogte">
 		<?php if($data["schofthoogte"] == 1) { ?>
-				<option value="TRUE">JA</option>
+				<option value="JA">JA</option>
+				<option value="NEE">NEE</option>
 			<?php }else { ?>
-				<option value="FALSE">NEE</option>
+				<option value="JA">NEE</option>
+				<option value="NEE">JA</option>
 				<?php } ?>
 		</select> <br>
 

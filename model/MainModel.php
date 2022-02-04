@@ -45,7 +45,7 @@
 
 	function updateDier($id, $naam, $leeftijd, $ras, $soort, $schofthoogte, $img) {
 		$conn = openDatabaseConnection(); 
-	    $stmt = $conn->prepare("UPDATE manegedieren SET diernaam = :naam, leeftijd = :leeftijd, ras = :ras, soort = :soort, schofthoogte = :schofthoogte img = :img WHERE id = :id");
+	    $stmt = $conn->prepare("UPDATE manegedieren SET diernaam = :naam, leeftijd = :leeftijd, ras = :ras, soort = :soort, schofthoogte = :schofthoogte, img = :img WHERE id = :id");
 		$stmt->bindParam(":id", $id);
 		$stmt->bindParam(":naam", $naam);
 		$stmt->bindParam(":leeftijd", $leeftijd);
